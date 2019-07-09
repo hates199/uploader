@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <title>Upload your Image!</title>
+        {{ dropzone.load() }}
+        {{ dropzone.style('border: 4px dashed #0087F7;
+         margin: 10%; min-height: 200px;') }}
+</head>
+<body>
+    <h1>Upload!</h1>
+    {{ dropzone.create(action_view='index') }}
+</body>
+</html>

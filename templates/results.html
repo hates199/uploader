@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body {
+        font-family: Helvetica Neue, Helvetica, Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        font-size: 24px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 26.4px;
+    }
+    a {
+        font-size: 20px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 26.4px;
+    }
+    a:link {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .content {
+        max-width: 1200px;
+    }
+    .mySlides {
+        max-width: 500px;
+        max-height: auto;
+        border-radius: 25%;
+        margin-left: auto;
+        margin-right: auto;
+        display: none;
+    }
+    nav {
+        background-color:dodgerblue;
+        overflow: hidden;
+    }
+    nav a{
+        float: left;
+        color:darkblue;
+        text-align: center;
+        padding: 14px 16px;
+    }
+    nav a:hover {
+        background-color:darkred;
+        color: white;
+    }
+    nav a.active{
+        background-color:firebrick;
+        color: white;
+    }
+    nav > .nav-right{
+        float: right;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery</title>
+</head>
+<body>
+    <nav>
+        <a class="active" href="{{ url_for('results') }}">Gallery</a>
+        <div class="nav-right">
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('index') }}">Upload</a>
+        </div>
+
+    </nav>
+    <h1>Your Gallery</h1>
+        <div class="my-content">
+            {% for file_url in file_urls %}
+                <img class="mySlides" src="{{ file_url }}">
+            {% endfor %}
+        </div>
+    <script>
+    var myIndex = 0;
+    carousel();
+    
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2000);
+    }
+    </script>
+</body>
+</html>
