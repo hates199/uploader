@@ -1,0 +1,3 @@
+- Adding users (dir)
+- Making it so users have their own gallery of sort..
+- Add Turn.js to images
